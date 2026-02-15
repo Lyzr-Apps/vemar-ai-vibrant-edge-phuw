@@ -1,0 +1,32 @@
+{
+  "nodes": [
+    {
+      "id": "input_node",
+      "type": "Input",
+      "label": "Video Input",
+      "nodeCategory": "input"
+    },
+    {
+      "id": "deepfake_agent",
+      "type": "Agent",
+      "label": "Deepfake Analysis Agent",
+      "nodeCategory": "agent"
+    },
+    {
+      "id": "output_node",
+      "type": "Output",
+      "label": "Detection Results",
+      "nodeCategory": "end"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input_node",
+      "target": "deepfake_agent"
+    },
+    {
+      "source": "deepfake_agent",
+      "target": "output_node"
+    }
+  ]
+}

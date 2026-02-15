@@ -1,0 +1,60 @@
+{
+  "agent_name": "Deepfake Analysis Agent",
+  "agent_id": "6991b5ca4f72b266ce46106e",
+  "description": "Analyzes video content detection results, interprets manipulation indicators, generates human-readable explanations of detected anomalies including facial inconsistencies, temporal artifacts, and audio-visual mismatches",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "verdict": "string",
+    "confidence_score": "number",
+    "overall_explanation": "string",
+    "facial_analysis": {
+      "score": "number",
+      "findings": "string"
+    },
+    "temporal_analysis": {
+      "score": "number",
+      "findings": "string"
+    },
+    "audio_analysis": {
+      "score": "number",
+      "findings": "string"
+    },
+    "suspicious_frames": [
+      {
+        "frame_number": "number",
+        "description": "string"
+      }
+    ],
+    "recommendations": [
+      "string"
+    ]
+  },
+  "example_response": {
+    "verdict": "AUTHENTIC, SUSPICIOUS, or DEEPFAKE",
+    "confidence_score": 0,
+    "overall_explanation": "Comprehensive explanation of findings",
+    "facial_analysis": {
+      "score": 0,
+      "findings": "Detailed facial analysis findings"
+    },
+    "temporal_analysis": {
+      "score": 0,
+      "findings": "Detailed temporal analysis findings"
+    },
+    "audio_analysis": {
+      "score": 0,
+      "findings": "Detailed audio analysis findings"
+    },
+    "suspicious_frames": [
+      {
+        "frame_number": 0,
+        "description": "Description of anomaly"
+      }
+    ],
+    "recommendations": [
+      "sample string"
+    ]
+  }
+}

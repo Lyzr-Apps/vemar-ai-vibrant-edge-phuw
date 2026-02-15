@@ -1,0 +1,113 @@
+{
+  "agent_id": "6991b5ca4f72b266ce46106e",
+  "agent_name": "Deepfake Analysis Agent",
+  "agent_type": "json",
+  "accessor": "json",
+  "has_module_outputs": false,
+  "response_schema": {
+    "type": "json_schema",
+    "json_schema": {
+      "name": "AgentResponse",
+      "strict": true,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "verdict": {
+            "type": "string",
+            "description": "AUTHENTIC, SUSPICIOUS, or DEEPFAKE"
+          },
+          "confidence_score": {
+            "type": "number",
+            "description": "0-100 percentage confidence"
+          },
+          "overall_explanation": {
+            "type": "string",
+            "description": "Comprehensive explanation of findings"
+          },
+          "facial_analysis": {
+            "type": "object",
+            "properties": {
+              "score": {
+                "type": "number",
+                "description": "0-100 facial manipulation score"
+              },
+              "findings": {
+                "type": "string",
+                "description": "Detailed facial analysis findings"
+              }
+            },
+            "required": ["score", "findings"],
+            "additionalProperties": false
+          },
+          "temporal_analysis": {
+            "type": "object",
+            "properties": {
+              "score": {
+                "type": "number",
+                "description": "0-100 temporal consistency score"
+              },
+              "findings": {
+                "type": "string",
+                "description": "Detailed temporal analysis findings"
+              }
+            },
+            "required": ["score", "findings"],
+            "additionalProperties": false
+          },
+          "audio_analysis": {
+            "type": "object",
+            "properties": {
+              "score": {
+                "type": "number",
+                "description": "0-100 audio-visual sync score"
+              },
+              "findings": {
+                "type": "string",
+                "description": "Detailed audio analysis findings"
+              }
+            },
+            "required": ["score", "findings"],
+            "additionalProperties": false
+          },
+          "suspicious_frames": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "frame_number": {
+                  "type": "number",
+                  "description": "Frame number"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Description of anomaly"
+                }
+              },
+              "required": ["frame_number", "description"],
+              "additionalProperties": false
+            },
+            "description": "List of suspicious frames with descriptions"
+          },
+          "recommendations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of recommendations for the reviewer"
+          }
+        },
+        "required": [
+          "verdict",
+          "confidence_score",
+          "overall_explanation",
+          "facial_analysis",
+          "temporal_analysis",
+          "audio_analysis",
+          "suspicious_frames",
+          "recommendations"
+        ],
+        "additionalProperties": false
+      }
+    }
+  }
+}

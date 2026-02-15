@@ -1,0 +1,20 @@
+{
+  "agents": [
+    {
+      "agent_id": "6991b5ca4f72b266ce46106e",
+      "agent_name": "Deepfake Analysis Agent",
+      "workflow_node_id": "deepfake_agent",
+      "provider": "openai",
+      "model": "gpt-4.1",
+      "temperature": 0.2,
+      "top_p": 1,
+      "has_tools": false,
+      "has_knowledge_base": false,
+      "has_image_output": false,
+      "has_voice": false,
+      "has_file_output": false
+    }
+  ],
+  "rag_ids": [],
+  "schedule_ids": []
+}
