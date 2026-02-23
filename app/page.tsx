@@ -24,7 +24,7 @@ import {
   RiStarLine, RiFundsLine, RiGroupLine,
   RiMoneyDollarCircleLine, RiFireLine,
   RiCheckboxCircleLine, RiAddLine, RiSubtractLine,
-  RiShieldStarLine, RiMailLine,
+  RiMailLine,
   RiMapPinLine, RiComputerLine, RiSmartphoneLine, RiTabletLine,
   RiEarthLine, RiLoginBoxLine, RiSpeedLine,
   RiPieChartLine, RiMouseLine,
@@ -511,7 +511,7 @@ export default function Page() {
             <RiMenuLine className="w-5 h-5" />
           </button>
           <div className="flex items-center gap-2">
-            <RiShieldLine className="w-6 h-6 text-[hsl(180,100%,50%)]" />
+            <img src="https://asset.lyzr.app/TuitRY4i" alt="Vemar.ai" className="w-8 h-8 rounded object-contain" />
             <span className="font-sans font-bold text-lg tracking-[0.02em] text-foreground">Vemar<span className="text-[hsl(300,80%,50%)]">.ai</span></span>
           </div>
         </div>
@@ -539,7 +539,7 @@ export default function Page() {
         <aside className={`fixed lg:static inset-y-0 left-0 z-50 w-56 border-r border-[rgba(255,255,255,0.08)] bg-[hsl(260,28%,7%)]/95 backdrop-blur-[12px] flex flex-col transition-transform duration-300 lg:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
           <div className="p-4 pt-5 lg:pt-4">
             <div className="flex items-center gap-2 mb-1 lg:hidden">
-              <RiShieldLine className="w-5 h-5 text-[hsl(180,100%,50%)]" />
+              <img src="https://asset.lyzr.app/TuitRY4i" alt="Vemar.ai" className="w-6 h-6 rounded object-contain" />
               <span className="font-sans font-bold tracking-[0.02em]">Vemar<span className="text-[hsl(300,80%,50%)]">.ai</span></span>
             </div>
             <p className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground font-sans">Deepfake Detection</p>
@@ -573,7 +573,7 @@ export default function Page() {
                 <div className="space-y-8">
                   <div className="text-center py-12">
                     <div className="flex items-center justify-center gap-3 mb-4">
-                      <RiShieldStarLine className="w-12 h-12 text-[hsl(180,100%,50%)]" />
+                      <img src="https://asset.lyzr.app/TuitRY4i" alt="Vemar.ai" className="w-20 h-20 rounded-lg object-contain drop-shadow-[0_0_15px_rgba(0,255,255,0.4)]" />
                     </div>
                     <h1 className="text-4xl lg:text-5xl font-sans font-bold tracking-tight mb-3">
                       Vemar<span className="text-[hsl(300,80%,50%)]">.ai</span>
@@ -1398,6 +1398,9 @@ export default function Page() {
                 <div className="space-y-8">
                   <div className="text-center py-8">
                     <Badge className="mb-4 bg-[hsl(300,80%,50%)]/20 text-[hsl(300,80%,50%)] border-[hsl(300,80%,50%)]/30">Investor Deck</Badge>
+                    <div className="flex justify-center mb-4">
+                      <img src="https://asset.lyzr.app/TuitRY4i" alt="Vemar.ai" className="w-16 h-16 rounded-lg object-contain drop-shadow-[0_0_15px_rgba(0,255,255,0.4)]" />
+                    </div>
                     <h1 className="text-3xl lg:text-4xl font-sans font-bold tracking-tight mb-3">Vemar<span className="text-[hsl(300,80%,50%)]">.ai</span></h1>
                     <p className="text-lg text-[hsl(180,100%,50%)] font-sans">Defending Truth in the Age of AI</p>
                   </div>
