@@ -1565,9 +1565,11 @@ export default function Page() {
                             </li>
                           ))}
                         </ul>
-                        <Button className={`w-full font-sans font-bold ${plan.popular ? 'bg-[hsl(180,100%,50%)] text-[hsl(260,30%,6%)] hover:bg-[hsl(180,100%,55%)] shadow-[0_0_20px_rgba(0,255,255,0.3)]' : 'bg-muted/50 text-foreground hover:bg-muted border border-[rgba(255,255,255,0.1)]'}`}>
-                          {plan.cta}
-                        </Button>
+                        <a href={`https://wa.me/918291497523?text=${encodeURIComponent('Hi, I am interested in the ' + plan.name + ' plan for Vemar.ai')}`} target="_blank" rel="noopener noreferrer" className="block w-full">
+                          <Button className={`w-full font-sans font-bold ${plan.popular ? 'bg-[hsl(180,100%,50%)] text-[hsl(260,30%,6%)] hover:bg-[hsl(180,100%,55%)] shadow-[0_0_20px_rgba(0,255,255,0.3)]' : 'bg-muted/50 text-foreground hover:bg-muted border border-[rgba(255,255,255,0.1)]'}`}>
+                            {plan.cta}
+                          </Button>
+                        </a>
                       </GlassCard>
                     ))}
                   </div>
