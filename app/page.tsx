@@ -24,7 +24,13 @@ import {
   RiStarLine, RiFundsLine, RiGroupLine,
   RiMoneyDollarCircleLine, RiFireLine,
   RiCheckboxCircleLine, RiAddLine, RiSubtractLine,
-  RiShieldStarLine, RiMailLine
+  RiShieldStarLine, RiMailLine,
+  RiMapPinLine, RiComputerLine, RiSmartphoneLine, RiTabletLine,
+  RiEarthLine, RiLoginBoxLine, RiSpeedLine,
+  RiPieChartLine, RiMouseLine,
+  RiExternalLinkLine, RiArrowUpSLine, RiArrowDownSLine,
+  RiChromeLine, RiFirefoxLine, RiSafariLine, RiEdgeLine,
+  RiPagesLine, RiCalendarLine, RiRouteLine
 } from 'react-icons/ri'
 
 const DEEPFAKE_AGENT_ID = '6991b5ca4f72b266ce46106e'
@@ -108,6 +114,72 @@ const FAQ_ITEMS = [
   { q: 'How is my data handled and stored?', a: 'All uploaded content is encrypted in transit (TLS 1.3) and at rest (AES-256). We are SOC 2 Type II compliant and GDPR ready.' },
   { q: 'What enterprise features are available?', a: 'Enterprise plans include unlimited analyses, custom model training, dedicated support with SLA guarantees, and on-premise deployment options.' },
   { q: 'Can Vemar.ai monitor live streams in real-time?', a: 'Yes, our platform supports real-time monitoring of live video streams with automated alerts for detected deepfakes.' }
+]
+
+const VISITOR_TRAFFIC_DAILY = [
+  { date: 'Feb 17', visitors: 1240, pageviews: 3820, sessions: 1580 },
+  { date: 'Feb 18', visitors: 1380, pageviews: 4210, sessions: 1720 },
+  { date: 'Feb 19', visitors: 1520, pageviews: 4650, sessions: 1890 },
+  { date: 'Feb 20', visitors: 1190, pageviews: 3560, sessions: 1440 },
+  { date: 'Feb 21', visitors: 1670, pageviews: 5120, sessions: 2050 },
+  { date: 'Feb 22', visitors: 1830, pageviews: 5680, sessions: 2240 },
+  { date: 'Feb 23', visitors: 1950, pageviews: 6100, sessions: 2410 }
+]
+
+const VISITOR_GEO = [
+  { country: 'United States', visitors: 4820, pct: 34.2, change: 12.3 },
+  { country: 'United Kingdom', visitors: 2140, pct: 15.2, change: 8.7 },
+  { country: 'Germany', visitors: 1650, pct: 11.7, change: -2.1 },
+  { country: 'Japan', visitors: 1280, pct: 9.1, change: 18.5 },
+  { country: 'India', visitors: 1120, pct: 7.9, change: 24.6 },
+  { country: 'Canada', visitors: 890, pct: 6.3, change: 5.4 },
+  { country: 'Australia', visitors: 760, pct: 5.4, change: 9.8 },
+  { country: 'France', visitors: 620, pct: 4.4, change: -0.5 },
+  { country: 'Brazil', visitors: 480, pct: 3.4, change: 31.2 },
+  { country: 'Others', visitors: 340, pct: 2.4, change: 6.1 }
+]
+
+const VISITOR_BROWSERS = [
+  { name: 'Chrome', pct: 58.3, color: 'bg-blue-400' },
+  { name: 'Firefox', pct: 14.7, color: 'bg-orange-400' },
+  { name: 'Safari', pct: 18.2, color: 'bg-sky-400' },
+  { name: 'Edge', pct: 8.8, color: 'bg-emerald-400' }
+]
+
+const VISITOR_DEVICES = [
+  { name: 'Desktop', pct: 62.4, count: 8790 },
+  { name: 'Mobile', pct: 28.8, count: 4060 },
+  { name: 'Tablet', pct: 8.8, count: 1240 }
+]
+
+const VISITOR_TOP_PAGES = [
+  { path: '/', title: 'Home', views: 6240, avgTime: '1:42', bounceRate: 32.1 },
+  { path: '/detection', title: 'Detection Analysis', views: 4880, avgTime: '4:15', bounceRate: 18.3 },
+  { path: '/dashboard', title: 'Dashboard', views: 3920, avgTime: '3:28', bounceRate: 22.7 },
+  { path: '/demo', title: 'Interactive Demo', views: 3140, avgTime: '5:02', bounceRate: 15.8 },
+  { path: '/pricing', title: 'Pricing', views: 2680, avgTime: '2:10', bounceRate: 41.2 },
+  { path: '/reports', title: 'Reports & Audit', views: 2240, avgTime: '3:45', bounceRate: 19.6 },
+  { path: '/analytics', title: 'Analytics', views: 1860, avgTime: '2:58', bounceRate: 25.4 },
+  { path: '/pitch', title: 'Investor Pitch', views: 1520, avgTime: '3:12', bounceRate: 28.9 }
+]
+
+const VISITOR_REFERRERS = [
+  { source: 'Google Search', visitors: 5240, pct: 37.2 },
+  { source: 'Direct', visitors: 3180, pct: 22.6 },
+  { source: 'LinkedIn', visitors: 1960, pct: 13.9 },
+  { source: 'Twitter / X', visitors: 1420, pct: 10.1 },
+  { source: 'Product Hunt', visitors: 980, pct: 7.0 },
+  { source: 'GitHub', visitors: 720, pct: 5.1 },
+  { source: 'Other', visitors: 580, pct: 4.1 }
+]
+
+const VISITOR_HOURLY = [
+  { hour: '00', visitors: 120 }, { hour: '02', visitors: 85 },
+  { hour: '04', visitors: 62 }, { hour: '06', visitors: 145 },
+  { hour: '08', visitors: 340 }, { hour: '10', visitors: 520 },
+  { hour: '12', visitors: 480 }, { hour: '14', visitors: 560 },
+  { hour: '16', visitors: 610 }, { hour: '18', visitors: 450 },
+  { hour: '20', visitors: 320 }, { hour: '22', visitors: 210 }
 ]
 
 function renderMarkdown(text: string) {
@@ -281,6 +353,7 @@ export default function Page() {
   const [openFaqId, setOpenFaqId] = useState<string | null>(null)
   const [homeSearch, setHomeSearch] = useState('')
   const [demoSelectedId, setDemoSelectedId] = useState<string | null>(null)
+  const [visitorTimeRange, setVisitorTimeRange] = useState<'7d' | '30d' | '90d'>('7d')
 
   useEffect(() => {
     const update = () => {
@@ -959,71 +1032,310 @@ export default function Page() {
               {/* ANALYTICS TAB */}
               {activeTab === 'analytics' && (
                 <div className="space-y-6">
-                  <div>
-                    <h1 className="text-2xl font-sans font-bold tracking-[0.02em] mb-1">Analytics</h1>
-                    <p className="text-sm text-muted-foreground font-sans">Detection trends, performance metrics, and threat intelligence</p>
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                    <div>
+                      <h1 className="text-2xl font-sans font-bold tracking-[0.02em] mb-1">Analytics</h1>
+                      <p className="text-sm text-muted-foreground font-sans">Detection trends, visitor insights, and performance metrics</p>
+                    </div>
+                    <div className="flex gap-1.5">
+                      {(['7d', '30d', '90d'] as const).map(range => (
+                        <button key={range} onClick={() => setVisitorTimeRange(range)} className={`px-3 py-1.5 rounded text-xs font-sans font-medium transition-all duration-200 ${visitorTimeRange === range ? 'bg-[hsl(180,100%,50%)]/20 text-[hsl(180,100%,50%)] border border-[hsl(180,100%,50%)]/30' : 'bg-muted/30 text-muted-foreground hover:text-foreground border border-transparent'}`}>
+                          {range === '7d' ? '7 Days' : range === '30d' ? '30 Days' : '90 Days'}
+                        </button>
+                      ))}
+                    </div>
                   </div>
+
+                  {/* Detection Stats */}
                   <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                     <StatCard icon={<RiLineChartLine className="w-5 h-5" />} label="Weekly Scans" value="1,247" accent />
                     <StatCard icon={<RiShieldCheckLine className="w-5 h-5" />} label="Overall Accuracy" value="99.2%" />
                     <StatCard icon={<RiFireLine className="w-5 h-5" />} label="Threats Blocked" value="342" />
                     <StatCard icon={<RiTimeLine className="w-5 h-5" />} label="Avg. Processing" value="24s" accent />
                   </div>
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <GlassCard className="p-5">
+
+                  {/* Visitor Overview Stats */}
+                  <div>
+                    <div className="flex items-center gap-2 mb-4">
+                      <RiEarthLine className="w-5 h-5 text-[hsl(300,80%,50%)]" />
+                      <h2 className="font-sans font-bold text-lg tracking-[0.02em]">Visitor Analytics</h2>
+                    </div>
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                      <StatCard icon={<RiGroupLine className="w-5 h-5" />} label="Total Visitors" value="14,090" accent />
+                      <StatCard icon={<RiPagesLine className="w-5 h-5" />} label="Page Views" value="39,140" />
+                      <StatCard icon={<RiMouseLine className="w-5 h-5" />} label="Avg. Session" value="3:12" />
+                      <StatCard icon={<RiSpeedLine className="w-5 h-5" />} label="Bounce Rate" value="24.8%" accent />
+                    </div>
+                  </div>
+
+                  {/* Traffic Chart + Hourly Distribution */}
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <GlassCard className="p-5 lg:col-span-2">
                       <div className="flex items-center gap-2 mb-4">
                         <RiBarChartLine className="w-5 h-5 text-[hsl(180,100%,50%)]" />
-                        <h3 className="font-sans font-semibold tracking-[0.02em]">Detection Trend (Last 7 Days)</h3>
+                        <h3 className="font-sans font-semibold tracking-[0.02em]">Traffic Overview (Last 7 Days)</h3>
                       </div>
-                      <div className="flex items-end gap-2 h-40">
-                        {[
-                          { day: 'Mon', total: 45, deepfake: 8 },
-                          { day: 'Tue', total: 62, deepfake: 12 },
-                          { day: 'Wed', total: 38, deepfake: 5 },
-                          { day: 'Thu', total: 71, deepfake: 15 },
-                          { day: 'Fri', total: 55, deepfake: 9 },
-                          { day: 'Sat', total: 28, deepfake: 3 },
-                          { day: 'Sun', total: 34, deepfake: 6 }
-                        ].map((d) => (
-                          <div key={d.day} className="flex-1 flex flex-col items-center gap-1">
-                            <div className="w-full flex flex-col items-center gap-0.5" style={{ height: '120px', justifyContent: 'flex-end' }}>
-                              <div className="w-full max-w-[28px] bg-[hsl(180,100%,50%)]/30 rounded-t" style={{ height: `${(d.total / 71) * 100}%` }} />
-                              <div className="w-full max-w-[28px] bg-red-500/50 rounded-t -mt-0.5" style={{ height: `${(d.deepfake / 71) * 100}%`, position: 'relative', top: `-${(d.total / 71) * 100}%` }} />
+                      <div className="flex items-end gap-3 h-44">
+                        {VISITOR_TRAFFIC_DAILY.map((d) => {
+                          const maxVal = 6100
+                          return (
+                            <div key={d.date} className="flex-1 flex flex-col items-center gap-1 group">
+                              <div className="w-full flex flex-col items-center justify-end" style={{ height: '140px' }}>
+                                <div className="relative w-full max-w-[32px]">
+                                  <div className="w-full bg-[hsl(180,100%,50%)]/25 rounded-t transition-all duration-500 group-hover:bg-[hsl(180,100%,50%)]/40" style={{ height: `${(d.pageviews / maxVal) * 130}px` }} />
+                                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/5 bg-[hsl(300,80%,50%)]/50 rounded-t transition-all duration-500" style={{ height: `${(d.visitors / maxVal) * 130}px` }} />
+                                </div>
+                              </div>
+                              <span className="text-[9px] text-muted-foreground font-mono">{d.date.split(' ')[1]}</span>
+                              <div className="hidden group-hover:block absolute -mt-40 bg-[hsl(260,25%,12%)] border border-[rgba(255,255,255,0.15)] rounded p-2 text-[10px] z-10 shadow-lg">
+                                <p className="text-foreground font-semibold">{d.date}</p>
+                                <p className="text-[hsl(180,100%,50%)]">{d.pageviews.toLocaleString()} views</p>
+                                <p className="text-[hsl(300,80%,50%)]">{d.visitors.toLocaleString()} visitors</p>
+                              </div>
                             </div>
-                            <span className="text-[10px] text-muted-foreground font-mono">{d.day}</span>
+                          )
+                        })}
+                      </div>
+                      <div className="flex items-center gap-4 mt-3">
+                        <div className="flex items-center gap-1.5"><div className="w-3 h-3 rounded bg-[hsl(180,100%,50%)]/25" /><span className="text-[10px] text-muted-foreground">Page Views</span></div>
+                        <div className="flex items-center gap-1.5"><div className="w-3 h-3 rounded bg-[hsl(300,80%,50%)]/50" /><span className="text-[10px] text-muted-foreground">Unique Visitors</span></div>
+                      </div>
+                    </GlassCard>
+
+                    <GlassCard className="p-5">
+                      <div className="flex items-center gap-2 mb-4">
+                        <RiCalendarLine className="w-5 h-5 text-[hsl(180,100%,50%)]" />
+                        <h3 className="font-sans font-semibold tracking-[0.02em] text-sm">Peak Hours (UTC)</h3>
+                      </div>
+                      <div className="space-y-1.5">
+                        {VISITOR_HOURLY.map((h) => {
+                          const maxH = 610
+                          return (
+                            <div key={h.hour} className="flex items-center gap-2">
+                              <span className="text-[10px] font-mono text-muted-foreground w-7">{h.hour}:00</span>
+                              <div className="flex-1 h-3 bg-muted/30 rounded-full overflow-hidden">
+                                <div className="h-full rounded-full bg-gradient-to-r from-[hsl(180,100%,50%)]/40 to-[hsl(300,80%,50%)]/60 transition-all duration-500" style={{ width: `${(h.visitors / maxH) * 100}%` }} />
+                              </div>
+                              <span className="text-[10px] font-mono text-muted-foreground w-7 text-right">{h.visitors}</span>
+                            </div>
+                          )
+                        })}
+                      </div>
+                    </GlassCard>
+                  </div>
+
+                  {/* Geo Distribution + Devices + Browsers */}
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <GlassCard className="p-5 lg:col-span-2">
+                      <div className="flex items-center gap-2 mb-4">
+                        <RiMapPinLine className="w-5 h-5 text-[hsl(180,100%,50%)]" />
+                        <h3 className="font-sans font-semibold tracking-[0.02em]">Visitors by Country</h3>
+                      </div>
+                      <div className="space-y-2.5">
+                        {VISITOR_GEO.map((g) => (
+                          <div key={g.country} className="flex items-center gap-3">
+                            <span className="text-xs text-muted-foreground w-28 truncate font-sans">{g.country}</span>
+                            <div className="flex-1 h-2.5 bg-muted/30 rounded-full overflow-hidden">
+                              <div className="h-full rounded-full bg-gradient-to-r from-[hsl(180,100%,50%)]/60 to-[hsl(180,100%,50%)]" style={{ width: `${g.pct}%`, maxWidth: '100%' }} />
+                            </div>
+                            <span className="text-xs font-mono text-foreground w-12 text-right">{g.visitors.toLocaleString()}</span>
+                            <span className={`text-[10px] font-mono w-14 text-right flex items-center justify-end gap-0.5 ${g.change >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                              {g.change >= 0 ? <RiArrowUpSLine className="w-3 h-3" /> : <RiArrowDownSLine className="w-3 h-3" />}
+                              {Math.abs(g.change)}%
+                            </span>
                           </div>
                         ))}
                       </div>
-                      <div className="flex items-center gap-4 mt-3">
-                        <div className="flex items-center gap-1.5"><div className="w-3 h-3 rounded bg-[hsl(180,100%,50%)]/30" /><span className="text-[10px] text-muted-foreground">Total Scans</span></div>
-                        <div className="flex items-center gap-1.5"><div className="w-3 h-3 rounded bg-red-500/50" /><span className="text-[10px] text-muted-foreground">Deepfakes</span></div>
-                      </div>
                     </GlassCard>
+
+                    <div className="space-y-6">
+                      <GlassCard className="p-5">
+                        <div className="flex items-center gap-2 mb-4">
+                          <RiComputerLine className="w-5 h-5 text-[hsl(300,80%,50%)]" />
+                          <h3 className="font-sans font-semibold tracking-[0.02em] text-sm">Device Breakdown</h3>
+                        </div>
+                        <div className="space-y-3">
+                          {VISITOR_DEVICES.map((d) => {
+                            const deviceIcon = d.name === 'Desktop'
+                              ? <RiComputerLine className="w-4 h-4" />
+                              : d.name === 'Mobile'
+                              ? <RiSmartphoneLine className="w-4 h-4" />
+                              : <RiTabletLine className="w-4 h-4" />
+                            return (
+                              <div key={d.name} className="flex items-center gap-3">
+                                <span className="text-[hsl(180,100%,50%)]">{deviceIcon}</span>
+                                <div className="flex-1">
+                                  <div className="flex justify-between text-xs mb-1">
+                                    <span className="text-muted-foreground">{d.name}</span>
+                                    <span className="font-mono font-bold">{d.pct}%</span>
+                                  </div>
+                                  <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
+                                    <div className="h-full rounded-full bg-[hsl(180,100%,50%)]" style={{ width: `${d.pct}%` }} />
+                                  </div>
+                                </div>
+                              </div>
+                            )
+                          })}
+                        </div>
+                      </GlassCard>
+
+                      <GlassCard className="p-5">
+                        <div className="flex items-center gap-2 mb-4">
+                          <RiPieChartLine className="w-5 h-5 text-[hsl(180,100%,50%)]" />
+                          <h3 className="font-sans font-semibold tracking-[0.02em] text-sm">Browser Share</h3>
+                        </div>
+                        <div className="space-y-2.5">
+                          {VISITOR_BROWSERS.map((b) => {
+                            const browserIcon = b.name === 'Chrome'
+                              ? <RiChromeLine className="w-4 h-4" />
+                              : b.name === 'Firefox'
+                              ? <RiFirefoxLine className="w-4 h-4" />
+                              : b.name === 'Safari'
+                              ? <RiSafariLine className="w-4 h-4" />
+                              : <RiEdgeLine className="w-4 h-4" />
+                            return (
+                              <div key={b.name} className="flex items-center gap-2.5">
+                                <span className="text-muted-foreground">{browserIcon}</span>
+                                <span className="text-xs text-muted-foreground w-14">{b.name}</span>
+                                <div className="flex-1 h-2 bg-muted/30 rounded-full overflow-hidden">
+                                  <div className={`h-full rounded-full ${b.color}`} style={{ width: `${b.pct}%` }} />
+                                </div>
+                                <span className="text-[10px] font-mono font-bold w-10 text-right">{b.pct}%</span>
+                              </div>
+                            )
+                          })}
+                        </div>
+                      </GlassCard>
+                    </div>
+                  </div>
+
+                  {/* Top Pages + Referrers */}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <GlassCard className="p-5">
                       <div className="flex items-center gap-2 mb-4">
-                        <RiStarLine className="w-5 h-5 text-[hsl(300,80%,50%)]" />
-                        <h3 className="font-sans font-semibold tracking-[0.02em]">Model Accuracy by Vector</h3>
+                        <RiRouteLine className="w-5 h-5 text-[hsl(180,100%,50%)]" />
+                        <h3 className="font-sans font-semibold tracking-[0.02em]">Top Pages</h3>
                       </div>
-                      <div className="space-y-4">
-                        {[
-                          { name: 'Overall', score: 99.2, color: 'bg-[hsl(180,100%,50%)]' },
-                          { name: 'Facial Analysis', score: 98.5, color: 'bg-emerald-400' },
-                          { name: 'Temporal Analysis', score: 97.8, color: 'bg-yellow-400' },
-                          { name: 'Audio Analysis', score: 96.1, color: 'bg-[hsl(300,80%,50%)]' }
-                        ].map((m) => (
-                          <div key={m.name}>
-                            <div className="flex justify-between text-xs mb-1.5">
-                              <span className="text-muted-foreground">{m.name}</span>
-                              <span className="font-mono font-bold">{m.score}%</span>
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-xs">
+                          <thead>
+                            <tr className="border-b border-[rgba(255,255,255,0.06)]">
+                              <th className="text-left py-2 pr-2 text-muted-foreground font-sans font-medium uppercase tracking-wider">Page</th>
+                              <th className="text-right py-2 px-2 text-muted-foreground font-sans font-medium uppercase tracking-wider">Views</th>
+                              <th className="text-right py-2 px-2 text-muted-foreground font-sans font-medium uppercase tracking-wider hidden sm:table-cell">Avg Time</th>
+                              <th className="text-right py-2 pl-2 text-muted-foreground font-sans font-medium uppercase tracking-wider">Bounce</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {VISITOR_TOP_PAGES.map((p) => (
+                              <tr key={p.path} className="border-b border-[rgba(255,255,255,0.04)] hover:bg-muted/15 transition-colors">
+                                <td className="py-2.5 pr-2">
+                                  <div className="flex items-center gap-1.5">
+                                    <RiPagesLine className="w-3.5 h-3.5 text-[hsl(180,100%,50%)]/60 shrink-0" />
+                                    <span className="font-sans text-foreground">{p.title}</span>
+                                  </div>
+                                  <span className="text-[10px] text-muted-foreground/50 font-mono ml-5">{p.path}</span>
+                                </td>
+                                <td className="py-2.5 px-2 text-right font-mono">{p.views.toLocaleString()}</td>
+                                <td className="py-2.5 px-2 text-right font-mono text-muted-foreground hidden sm:table-cell">{p.avgTime}</td>
+                                <td className={`py-2.5 pl-2 text-right font-mono ${p.bounceRate > 30 ? 'text-yellow-400' : 'text-emerald-400'}`}>{p.bounceRate}%</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </GlassCard>
+
+                    <GlassCard className="p-5">
+                      <div className="flex items-center gap-2 mb-4">
+                        <RiExternalLinkLine className="w-5 h-5 text-[hsl(300,80%,50%)]" />
+                        <h3 className="font-sans font-semibold tracking-[0.02em]">Traffic Sources</h3>
+                      </div>
+                      <div className="space-y-3">
+                        {VISITOR_REFERRERS.map((r) => (
+                          <div key={r.source}>
+                            <div className="flex justify-between text-xs mb-1">
+                              <span className="text-muted-foreground font-sans">{r.source}</span>
+                              <div className="flex items-center gap-2">
+                                <span className="font-mono text-foreground">{r.visitors.toLocaleString()}</span>
+                                <span className="text-[10px] font-mono text-muted-foreground/60 w-10 text-right">{r.pct}%</span>
+                              </div>
                             </div>
-                            <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
-                              <div className={`h-full rounded-full transition-all duration-700 ${m.color}`} style={{ width: `${m.score}%` }} />
+                            <div className="w-full h-2 bg-muted/30 rounded-full overflow-hidden">
+                              <div className="h-full rounded-full bg-gradient-to-r from-[hsl(300,80%,50%)]/40 to-[hsl(300,80%,50%)]" style={{ width: `${r.pct}%`, minWidth: '4px' }} />
                             </div>
                           </div>
                         ))}
                       </div>
                     </GlassCard>
                   </div>
+
+                  {/* Detection Analytics Section */}
+                  <div>
+                    <div className="flex items-center gap-2 mb-4">
+                      <RiShieldLine className="w-5 h-5 text-red-400" />
+                      <h2 className="font-sans font-bold text-lg tracking-[0.02em]">Detection Analytics</h2>
+                    </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                      <GlassCard className="p-5">
+                        <div className="flex items-center gap-2 mb-4">
+                          <RiBarChartLine className="w-5 h-5 text-[hsl(180,100%,50%)]" />
+                          <h3 className="font-sans font-semibold tracking-[0.02em]">Detection Trend (Last 7 Days)</h3>
+                        </div>
+                        <div className="flex items-end gap-2 h-40">
+                          {[
+                            { day: 'Mon', total: 45, deepfake: 8 },
+                            { day: 'Tue', total: 62, deepfake: 12 },
+                            { day: 'Wed', total: 38, deepfake: 5 },
+                            { day: 'Thu', total: 71, deepfake: 15 },
+                            { day: 'Fri', total: 55, deepfake: 9 },
+                            { day: 'Sat', total: 28, deepfake: 3 },
+                            { day: 'Sun', total: 34, deepfake: 6 }
+                          ].map((d) => (
+                            <div key={d.day} className="flex-1 flex flex-col items-center gap-1">
+                              <div className="w-full flex flex-col items-center justify-end" style={{ height: '120px' }}>
+                                <div className="relative w-full max-w-[28px]">
+                                  <div className="w-full bg-[hsl(180,100%,50%)]/30 rounded-t" style={{ height: `${(d.total / 71) * 100}%` }} />
+                                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/5 bg-red-500/50 rounded-t" style={{ height: `${(d.deepfake / 71) * 100}%` }} />
+                                </div>
+                              </div>
+                              <span className="text-[10px] text-muted-foreground font-mono">{d.day}</span>
+                            </div>
+                          ))}
+                        </div>
+                        <div className="flex items-center gap-4 mt-3">
+                          <div className="flex items-center gap-1.5"><div className="w-3 h-3 rounded bg-[hsl(180,100%,50%)]/30" /><span className="text-[10px] text-muted-foreground">Total Scans</span></div>
+                          <div className="flex items-center gap-1.5"><div className="w-3 h-3 rounded bg-red-500/50" /><span className="text-[10px] text-muted-foreground">Deepfakes</span></div>
+                        </div>
+                      </GlassCard>
+                      <GlassCard className="p-5">
+                        <div className="flex items-center gap-2 mb-4">
+                          <RiStarLine className="w-5 h-5 text-[hsl(300,80%,50%)]" />
+                          <h3 className="font-sans font-semibold tracking-[0.02em]">Model Accuracy by Vector</h3>
+                        </div>
+                        <div className="space-y-4">
+                          {[
+                            { name: 'Overall', score: 99.2, color: 'bg-[hsl(180,100%,50%)]' },
+                            { name: 'Facial Analysis', score: 98.5, color: 'bg-emerald-400' },
+                            { name: 'Temporal Analysis', score: 97.8, color: 'bg-yellow-400' },
+                            { name: 'Audio Analysis', score: 96.1, color: 'bg-[hsl(300,80%,50%)]' }
+                          ].map((m) => (
+                            <div key={m.name}>
+                              <div className="flex justify-between text-xs mb-1.5">
+                                <span className="text-muted-foreground">{m.name}</span>
+                                <span className="font-mono font-bold">{m.score}%</span>
+                              </div>
+                              <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
+                                <div className={`h-full rounded-full transition-all duration-700 ${m.color}`} style={{ width: `${m.score}%` }} />
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </GlassCard>
+                    </div>
+                  </div>
+
+                  {/* Threat Distribution */}
                   <GlassCard className="p-5">
                     <div className="flex items-center gap-2 mb-4">
                       <RiAlertLine className="w-5 h-5 text-red-400" />
@@ -1044,6 +1356,38 @@ export default function Page() {
                       ))}
                     </div>
                   </GlassCard>
+
+                  {/* Live Visitor Activity */}
+                  <GlassCard className="p-5">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-2">
+                        <RiLoginBoxLine className="w-5 h-5 text-emerald-400" />
+                        <h3 className="font-sans font-semibold tracking-[0.02em]">Live Visitor Activity</h3>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                        <span className="text-xs font-mono text-emerald-400">42 online now</span>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                      {[
+                        { page: 'Detection Analysis', visitors: 14, time: '4:15 avg', location: 'US, UK, DE' },
+                        { page: 'Dashboard', visitors: 11, time: '3:28 avg', location: 'US, JP, IN' },
+                        { page: 'Interactive Demo', visitors: 9, time: '5:02 avg', location: 'US, CA, BR' },
+                        { page: 'Pricing', visitors: 8, time: '2:10 avg', location: 'UK, FR, AU' }
+                      ].map((a) => (
+                        <div key={a.page} className="p-3 rounded bg-muted/20 border border-[rgba(255,255,255,0.06)]">
+                          <div className="flex items-center justify-between mb-1.5">
+                            <span className="text-xs font-sans font-medium text-foreground truncate">{a.page}</span>
+                            <span className="text-xs font-mono font-bold text-[hsl(180,100%,50%)]">{a.visitors}</span>
+                          </div>
+                          <p className="text-[10px] text-muted-foreground">{a.time}</p>
+                          <p className="text-[10px] text-muted-foreground/60 mt-0.5">{a.location}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </GlassCard>
+
                   <FaqSection openFaqId={openFaqId} setOpenFaqId={setOpenFaqId} />
                 </div>
               )}
