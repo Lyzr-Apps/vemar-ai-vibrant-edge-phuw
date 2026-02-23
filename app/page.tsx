@@ -1494,9 +1494,11 @@ export default function Page() {
                       ))}
                     </div>
                     <div className="text-center mt-6">
-                      <Button className="bg-[hsl(180,100%,50%)] text-[hsl(260,30%,6%)] hover:bg-[hsl(180,100%,55%)] shadow-[0_0_25px_rgba(0,255,255,0.4)] font-sans font-bold px-8 py-5">
-                        <RiMailLine className="w-5 h-5 mr-2" /> Contact Us
-                      </Button>
+                      <a href="https://wa.me/918291497523" target="_blank" rel="noopener noreferrer">
+                        <Button className="bg-[hsl(180,100%,50%)] text-[hsl(260,30%,6%)] hover:bg-[hsl(180,100%,55%)] shadow-[0_0_25px_rgba(0,255,255,0.4)] font-sans font-bold px-8 py-5">
+                          <RiMailLine className="w-5 h-5 mr-2" /> Contact Us
+                        </Button>
+                      </a>
                     </div>
                   </GlassCard>
                   <FaqSection openFaqId={openFaqId} setOpenFaqId={setOpenFaqId} />
