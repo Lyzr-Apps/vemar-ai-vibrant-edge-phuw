@@ -19,7 +19,7 @@ import {
   RiPulseLine, RiBarChartLine, RiFileChartLine,
   RiLink, RiPlayLine, RiMenuLine,
   RiHomeLine, RiPresentationLine, RiLineChartLine, RiPriceTagLine,
-  RiPlayCircleLine, RiQuestionLine, RiRocketLine, RiTeamLine,
+  RiPlayCircleLine, RiQuestionLine, RiRocketLine,
   RiGlobeLine, RiLightbulbLine, RiCpuLine, RiServerLine,
   RiStarLine, RiFundsLine, RiGroupLine,
   RiMoneyDollarCircleLine, RiFireLine,
@@ -1466,30 +1466,6 @@ export default function Page() {
                         <div key={i} className="text-center p-3">
                           <p className="text-2xl font-bold font-mono text-[hsl(180,100%,50%)]">{t.val}</p>
                           <p className="text-[10px] text-muted-foreground uppercase tracking-wider mt-1">{t.label}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </GlassCard>
-
-                  <GlassCard className="p-6">
-                    <div className="flex items-center gap-2 mb-4">
-                      <RiTeamLine className="w-5 h-5 text-[hsl(300,80%,50%)]" />
-                      <h3 className="font-sans font-bold text-lg">Leadership Team</h3>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                      {[
-                        { name: 'Alex Chen', role: 'Founder & CEO', bg: 'Ex-Google AI, Stanford PhD' },
-                        { name: 'Sarah Kim', role: 'CTO', bg: 'Ex-Meta Research, 15+ patents' },
-                        { name: 'Dr. James Obi', role: 'Head of AI', bg: 'Ex-DeepMind, NeurIPS author' },
-                        { name: 'Maria Santos', role: 'Head of Growth', bg: 'Ex-Palantir, scaled $0-50M' }
-                      ].map((p, i) => (
-                        <div key={i} className="p-4 rounded bg-muted/20 border border-[rgba(255,255,255,0.06)] text-center">
-                          <div className="w-12 h-12 rounded-full bg-[hsl(180,100%,50%)]/20 mx-auto mb-3 flex items-center justify-center">
-                            <RiUserLine className="w-6 h-6 text-[hsl(180,100%,50%)]" />
-                          </div>
-                          <p className="font-sans font-semibold text-sm">{p.name}</p>
-                          <p className="text-xs text-[hsl(180,100%,50%)] mt-0.5">{p.role}</p>
-                          <p className="text-[10px] text-muted-foreground mt-1">{p.bg}</p>
                         </div>
                       ))}
                     </div>
